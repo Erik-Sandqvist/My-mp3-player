@@ -7,8 +7,8 @@ const art_img = document.querySelector('#artist');
 const art_name = document.querySelector('#name');
 const playSong = document.querySelector('#playsong');
 
-const artist_name = ['All', 'All2', 'All3', 'All4', 'All5'];
-const artist_title = ['song1', 'song2', 'song3', 'song4', 'son5'];
+const artist_name = ['King kong', 'qusara', 'All3', 'All4', 'All5'];
+const artist_title = ['Rio', 'Hey', 'song3', 'song4', 'son5'];
 
 playSong.addEventListener('click', effect);
 
@@ -83,7 +83,8 @@ songs(0);
 const lines = document.querySelector('.lineChild');
 const progress = document.querySelector('.line');
 const strt = document.querySelector('.#start');
-const end = document.querySelector('.#end');
+const end = document.querySelector('#end');
+
 
 function dur() {
     var dura = ad.duration;
