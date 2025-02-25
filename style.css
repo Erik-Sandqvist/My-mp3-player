@@ -7,7 +7,7 @@
 }
 
 .box-1{
-    background: linear-gradient(yellow - 20%, gray);
+    background: linear-gradient(rgb(3, 65, 16)- 20%, rgb(44, 143, 146));
 }
 
 .center{
@@ -17,7 +17,7 @@
 }
 
 body{
-    background: linear-gradient(to top, yellow, gray 70%);
+    background: linear-gradient(to top, rgb(3, 65, 16), rgb(44, 143, 146) 70%);
 }
 
 .box{
@@ -30,7 +30,7 @@ width: 100px;
 height: 100px;
 margin-bottom: 20px;
 border-radius: 50%;
-border: solid 5px yellow;
+border: solid 5px rgb(0, 71, 30);
 }
 
 .box-1 {
@@ -85,7 +85,7 @@ border: solid 5px yellow;
 
 .ctrl{
     cursor: pointer;
-    background-color: yellow;
+    background-color: rgb(44, 143, 146);
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -135,7 +135,7 @@ i{
     cursor: pointer;
     position: absolute;
     border-radius: 10px;
-    background-color: yellow;
+    background-color: rgb(44, 143, 146);
     width: 0%;
     height: 100%;
     transition:  width 0.1s;

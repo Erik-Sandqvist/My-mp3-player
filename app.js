@@ -1,4 +1,4 @@
-const ad = document.querySelector('.song');
+const ad = document.querySelector('.song'); // Kontrollera att detta är korrekt element
 const playing = document.querySelector('.fa-play');
 const pauses = document.querySelector('.fa-pause');
 const forw = document.querySelector('.fa-forward-step');
@@ -7,8 +7,13 @@ const art_img = document.querySelector('#artist');
 const art_name = document.querySelector('#name');
 const playSong = document.querySelector('#playsong');
 
-const artist_name = ['King kong', 'qusara', 'All3', 'All4', 'All5'];
-const artist_title = ['Rio', 'Hey', 'song3', 'song4', 'son5'];
+const artist_name = ['Post Malone feat. 21 Savage', 'King of Brazil', 'qusara',  'All4', 'All5'];
+const artist_title = ['Rockstar', 'Rio', 'Hey', 'song4', 'son5'];
+
+ad.ontimeupdate = function() {
+    prog();
+    line();
+};
 
 playSong.addEventListener('click', effect);
 
@@ -21,12 +26,12 @@ function effect() {
 
     if (!playing.classList.contains('none')) {
         ad.play();
-        // setInterval(prog,1000);
-        // setInterval(line, 1000);
-        // ProgressEvent.addEventListener('click', (e)=>{
-        //    var widthbar2 = (e.offsetX/e.target.clientWidth)*ad.duration;
-        //       ad.currentTime = widthbar2;
-        // })
+     setInterval(prog,1000);
+        setInterval(line, 1000);
+        progress.addEventListener('click', (e)=>{
+           var widthbar2 = (e.offsetX / e.target.clientWidth)*ad.duration;
+              ad.currentTime = widthbar2;
+        })
     }
     else {
         ad.pause();
@@ -51,7 +56,7 @@ function removeEffect() {
 var x = 0;
 
 function backward() {
-    //dur();
+    dur();
     x -= 1;
     removeEffect();
     songs(x);
@@ -61,7 +66,7 @@ function backward() {
 }
 
 function forward() {
-   // dur();
+    dur();
     x += 1;
     removeEffect();
     songs(x);
@@ -80,18 +85,38 @@ function songs(x) {
 
 songs(0);
 
-const lines = document.querySelector('.lineChild');
+const lines = document.querySelector('.linechild');
 const progress = document.querySelector('.line');
-const strt = document.querySelector('.#start');
+const strt = document.querySelector('#start');
 const end = document.querySelector('#end');
 
+ad.onloadedmetadata = function() {
+    dur();
+};
 
 function dur() {
     var dura = ad.duration;
     var secdu = Math.floor(dura % 60);
     var mindu = Math.floor(dura / 60);
-if (secdu < 10) {
-    secdu = `0${secdu}`;
+    if (secdu < 10) {
+        secdu = `0${secdu}`;
+    }
+    end.innerHTML = `${mindu}:${secdu}`;
 }
-end.innerHTML = `${mindu}:${secdu}`;
+
+function prog() {
+    var curtime = ad.currentTime;
+    var mincur = Math.floor(curtime / 60);
+    var seccur = Math.floor(curtime % 60);
+    
+    if (seccur < 10) {
+        seccur = `0${seccur}`;
+    }
+
+    strt.innerHTML = `${mincur}:${seccur}`;
+}
+
+function line() {
+    var widthbar = (ad.currentTime / ad.duration) * 100;
+    lines.style.width = `${widthbar}%`;
 }
