@@ -113,10 +113,4 @@ function prog() {
         seccur = `0${seccur}`;
     }
 
-    strt.innerHTML = `${mincur}:${seccur}`;
-}
-
-function line() {
-    var widthbar = (ad.currentTime / ad.duration) * 100;
-    lines.style.width = `${widthbar}%`;
-}
+    strt.innerHTML = `${
